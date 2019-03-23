@@ -7,6 +7,7 @@ namespace PersonGrid.Models
     internal class Person
     {
         #region Fields
+        private Guid _guid;
         private string _firstName;
         private string _lastName;
         private string _email;
@@ -17,7 +18,19 @@ namespace PersonGrid.Models
 
 
         #region Properties
-        internal string FirstName
+        public Guid Guid
+        {
+            get
+            {
+                return _guid;
+            }
+            private set
+            {
+                _guid = value;
+            }
+        }
+        public string FirstName
+
         {
             get { return _firstName; }
             set
@@ -32,9 +45,10 @@ namespace PersonGrid.Models
                     throw new InvalidNameException(value);
             }
         }
-        internal string LastName
+        public string LastName
         {
-            get { return _lastName; }
+            get { return "LastName"; }
+//            get { return _lastName; }
             set
             {
                 Regex regex = new Regex(@"^[a-zA-Z'-]+$");
@@ -47,7 +61,7 @@ namespace PersonGrid.Models
                     throw new InvalidNameException(value);
             }
         }
-        internal string Email
+        public string Email
         {
             get { return _email; }
             set
@@ -156,7 +170,6 @@ namespace PersonGrid.Models
         public Person(string firstName, string lastName, DateTime birthDate) : this(firstName, lastName, " ", birthDate) { }
         #endregion
        
-
 
     }
     #region Exceptions

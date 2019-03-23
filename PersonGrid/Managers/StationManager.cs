@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows;
+using PersonGrid.DataStorage;
 using PersonGrid.Models;
 using PersonGrid.Tools;
 
@@ -8,18 +9,19 @@ namespace PersonGrid.Managers
 {
     internal static class StationManager
     {
-        private static DataManager _dataStorage;
+        private static IDataStorage _dataStorage;
         internal static Person CurrentPerson { get; set; }
 
-        internal static DataManager DataStorage
+        internal static IDataStorage DataStorage
         {
             get { return _dataStorage; }
         }
 
-        internal static void Initialize(DataManager dataStorage)
+        internal static void Initialize(IDataStorage dataStorage)
         {
             _dataStorage = dataStorage;
         }
+
 
         internal static void CloseApp()
         {

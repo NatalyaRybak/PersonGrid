@@ -58,7 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataStorage\IDataStorage.cs" />
     <Compile Include="DataStorage\DataManager.cs" />
+    <Compile Include="DataStorage\SerializedDataStorage.cs" />
     <Compile Include="Managers\SerializationManager.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Tools\Filters.cs" />

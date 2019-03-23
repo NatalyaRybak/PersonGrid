@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using PersonGrid.DataStorage;
 using PersonGrid.Models;
 using PersonGrid.Tools;
 using PersonGrid.Managers;
@@ -92,7 +93,8 @@ namespace PersonGrid.ViewModels
                 try
                 {
                     Thread.Sleep(1000);
-                    currentPerson = DataManager.CreatePerson(_firstName, _lastName, _email, _birthDate);
+                    currentPerson = new Person(_firstName, _lastName, _email, _birthDate);
+                    StationManager.DataStorage.AddPerson(currentPerson);
                 }
                 catch (CreatingPersonException ex)
                 {

@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using PersonGrid.DataStorage;
 using PersonGrid.Tools;
 using PersonGrid.ViewModels;
 using PersonGrid.Managers;
@@ -22,13 +23,13 @@ namespace PersonGrid
 
         private void InitializeApplication()
         {
-            StationManager.Initialize(new DataManager());
+            StationManager.Initialize(new SerializedDataStorage());
             var navigationModel = new NavigationModel(this);
             NavigationManager.Instance.Initialize(navigationModel);
         }
 
         public ContentControl ContentControl
-        {
+        {   
             get { return _contentControl; }
         }
     }

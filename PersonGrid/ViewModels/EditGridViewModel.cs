@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
+using PersonGrid.DataStorage;
 using PersonGrid.Managers;
 using PersonGrid.Properties;
 using PersonGrid.Tools;
@@ -29,7 +30,7 @@ namespace PersonGrid.ViewModels
 
         internal EditGridViewModel()
         {
-            _persons = new ObservableCollection<Person>(DataManager.PersonList);
+            _persons = new ObservableCollection<Person>(StationManager.DataStorage.PersonList);
         }
         
 

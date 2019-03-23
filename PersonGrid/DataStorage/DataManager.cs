@@ -6,9 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using PersonGrid.Managers;
 using PersonGrid.Tools;
 
-namespace PersonGrid.Managers
+namespace PersonGrid.DataStorage
 {
     internal class DataManager
     {
@@ -30,6 +31,11 @@ namespace PersonGrid.Managers
               }
       
         }
+        internal static bool PersonExists(string email)
+        {
+          return _persons.Any(u => u.Email == email);
+        }
+
         internal static Person CreatePerson(string firstName, string lastName, string email, DateTime birthDate)
         {
             Person newPerson = new Person(firstName, lastName, email, birthDate);
@@ -42,9 +48,9 @@ namespace PersonGrid.Managers
         }
 
 
-        internal static void AddPerson(Person user)
+        internal static void AddPerson(Person person)
         {
-            _persons.Add(user);
+            _persons.Add(person);
             SaveChanges();
         }
 
@@ -52,17 +58,14 @@ namespace PersonGrid.Managers
         {
             SerializationManager.Serialize(_persons, FileFolderHelper.StorageFilePath);
         }
-        public static void UpdateGrid(List<Person> persons)
-        {
-            SaveChanges();
-        }
+//        public static void UpdateGrid(List<Person> persons)
+//        {
+//            SaveChanges();
+//        }
 
 
 
-        //        internal static bool UserExists(string login)
-        //        {
-        //            return _persons.Any(u => u.Login == login);
-        //        }
+        //        
         //
         //        internal static Person GetUserByLogin(string login)
         //        {
