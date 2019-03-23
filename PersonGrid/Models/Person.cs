@@ -47,8 +47,7 @@ namespace PersonGrid.Models
         }
         public string LastName
         {
-            get { return "LastName"; }
-//            get { return _lastName; }
+            get { return _lastName; }
             set
             {
                 Regex regex = new Regex(@"^[a-zA-Z'-]+$");
@@ -66,8 +65,8 @@ namespace PersonGrid.Models
             get { return _email; }
             set
             {
-//                Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-                Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w))+)$");
+//                Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w))+)$");
+                Regex regex = new Regex(@"^[a-z0-9][-a-z0-9._]+@([-a-z0-9]+[.])+[a-z]{2,5}$");
                 Match match = regex.Match(value);
                 if (match.Success)
                 {
@@ -79,7 +78,7 @@ namespace PersonGrid.Models
         }
         public DateTime BirthDate
         {
-            get { return _birthDate; }
+            get { return _birthDate ; }
             set
             {
 

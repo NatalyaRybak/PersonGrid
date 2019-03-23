@@ -14,6 +14,7 @@ namespace PersonGrid.DataStorage
 //        User GetUserByLogin(string login);
 
         void AddPerson(Person person);
+        void DeletePerson(Person person);
         List<Person> PersonList { get; }
     }
 }

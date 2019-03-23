@@ -25,7 +25,7 @@ namespace PersonGrid.DataStorage
                 _persons = new List<Person>();
                 Random rnd = new Random();
                 for (int i = 0; i < 5; ++i)
-                    _persons.Add(new Person($"{(char)(rnd.Next(65, 90))}", $"{(char)(rnd.Next(65, 90))}", $"user@bb.b", new DateTime(rnd.Next(DateTime.Today.Year - 110, DateTime.Today.Year - 10), rnd.Next(1, 13), rnd.Next(1, 25))));
+                    _persons.Add(new Person($"{(char)(rnd.Next(65, 90))}", $"{(char)(rnd.Next(65, 90))}", $"user{i}@ukma.edu", new DateTime(rnd.Next(DateTime.Today.Year - 110, DateTime.Today.Year - 10), rnd.Next(1, 13), rnd.Next(1, 25))));
             }
         }
 
@@ -40,6 +40,11 @@ namespace PersonGrid.DataStorage
            _persons.Add(person);
            SaveChanges();
        }
+        public void DeletePerson(Person person)
+        {
+            _persons.Remove(person);
+            SaveChanges();
+        }
 
         public List<Person> PersonList
         {
