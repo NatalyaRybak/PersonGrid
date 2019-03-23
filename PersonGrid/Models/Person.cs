@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using PersonGrid.Managers;
+using PersonGrid.Tools;
 
 namespace PersonGrid.Models
 {
@@ -7,7 +9,6 @@ namespace PersonGrid.Models
     internal class Person
     {
         #region Fields
-        private Guid _guid;
         private string _firstName;
         private string _lastName;
         private string _email;
@@ -18,17 +19,7 @@ namespace PersonGrid.Models
 
 
         #region Properties
-        public Guid Guid
-        {
-            get
-            {
-                return _guid;
-            }
-            private set
-            {
-                _guid = value;
-            }
-        }
+
         public string FirstName
 
         {
@@ -40,6 +31,8 @@ namespace PersonGrid.Models
                 if ( match.Success )
                 {
                     _firstName = value;
+                    SerializationManager.Serialize(StationManager.DataStorage.PersonList, FileFolderHelper.StorageFilePath);
+
                 }
                 else
                     throw new InvalidNameException(value);
@@ -55,6 +48,8 @@ namespace PersonGrid.Models
                 if (match.Success)
                 {
                     _lastName = value;
+                    SerializationManager.Serialize(StationManager.DataStorage.PersonList, FileFolderHelper.StorageFilePath);
+
                 }
                 else
                     throw new InvalidNameException(value);
@@ -70,6 +65,8 @@ namespace PersonGrid.Models
                 if (match.Success)
                 {
                     _email = value;
+                    SerializationManager.Serialize(StationManager.DataStorage.PersonList, FileFolderHelper.StorageFilePath);
+
                 }
                 else
                     throw new InvalidEmailException(value);
@@ -87,11 +84,15 @@ namespace PersonGrid.Models
                 if (diff.Days < 0) { throw new FutureBirthdayException(value); } else
                 {
                     _birthDate = value;
+                    SerializationManager.Serialize(StationManager.DataStorage.PersonList, FileFolderHelper.StorageFilePath);
+
                 }
                 if (age >= 135) { throw new TooPastBirthdayException(value); }
                 else
                 {
                     _birthDate = value;
+                    SerializationManager.Serialize(StationManager.DataStorage.PersonList, FileFolderHelper.StorageFilePath);
+
                 }
 
             }

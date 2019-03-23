@@ -33,7 +33,6 @@ namespace PersonGrid.ViewModels
             set
             {
                 _selectedPerson = value;
-                if (_selectedPerson == null) return;
             }
         }
 
@@ -48,6 +47,7 @@ namespace PersonGrid.ViewModels
                 return _addCommand ?? (_addCommand = new RelayCommand<object>(AddExecute));
             }
         }
+        
 
 
         private void DeleteExecute(object obj)
@@ -62,6 +62,7 @@ namespace PersonGrid.ViewModels
             NavigationManager.Instance.Navigate(ModesEnum.DataPerson);
 
         }
+
         internal EditGridViewModel()
         {
             _persons = new ObservableCollection<Person>(StationManager.DataStorage.PersonList);

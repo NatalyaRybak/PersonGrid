@@ -7,8 +7,6 @@ namespace PersonGrid.DataStorage
     {
         bool PersonExists(string login);
 
-//        User GetUserByLogin(string login);
-
         void AddPerson(Person person);
         void DeletePerson(Person person);
         List<Person> PersonList { get; }
