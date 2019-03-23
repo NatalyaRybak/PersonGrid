@@ -1,9 +1,7 @@
 ﻿using System;
-using System.IO;
 using System.Windows;
 using PersonGrid.DataStorage;
 using PersonGrid.Models;
-using PersonGrid.Tools;
 
 namespace PersonGrid.Managers
 {

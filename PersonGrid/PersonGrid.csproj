@@ -72,9 +72,6 @@
     <Compile Include="Views\PersonGridView.xaml.cs">
       <DependentUpon>PersonGridView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ProceededView.xaml.cs">
-      <DependentUpon>ProceededView.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -87,7 +84,6 @@
     <Compile Include="Models\Person.cs" />
     <Compile Include="Managers\NavigationManager.cs" />
     <Compile Include="Managers\StationManager.cs" />
-    <Compile Include="Tools\Adapter.cs" />
     <Compile Include="Tools\IContentWindow.cs" />
     <Compile Include="Tools\ILoaderOwner.cs" />
     <Compile Include="Tools\NavigationModel.cs" />
@@ -105,14 +101,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ProceededView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\ProceedViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
