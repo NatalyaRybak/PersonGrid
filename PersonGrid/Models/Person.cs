@@ -65,7 +65,6 @@ namespace PersonGrid.Models
             get { return _email; }
             set
             {
-//                Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w))+)$");
                 Regex regex = new Regex(@"^[a-z0-9][-a-z0-9._]+@([-a-z0-9]+[.])+[a-z]{2,5}$");
                 Match match = regex.Match(value);
                 if (match.Success)
@@ -85,7 +84,7 @@ namespace PersonGrid.Models
                 int v = (DateTime.Today.DayOfYear >= value.DayOfYear ? 0 : 1);
                 var age = (DateTime.Today.Year - value.Year) - v;
                 var diff = DateTime.Today - value;
-                if (diff.Days <= 0) { throw new FutureBirthdayException(value); } else
+                if (diff.Days < 0) { throw new FutureBirthdayException(value); } else
                 {
                     _birthDate = value;
                 }
